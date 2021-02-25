@@ -26,14 +26,13 @@ IP = sys.argv[1]
 tmp=IP.split('.')
 newip=[]
 alive=[]
-net1=tmp[0]+'.'+tmp[1]+'.'+'0'+'.'+'0'
+net1=tmp[0]+'.'+tmp[1]+'.'+tmp[2]+'.'+'0'
 for ip in range(1,255):
-    for ip2 in range(1,255):
-        newip.append(tmp[0]+'.'+tmp[1]+'.'+str(ip)+'.'+str(ip2))
+    newip.append(tmp[0]+'.'+tmp[1]+'.'+tmp[2]+'.'+str(ip))
 
 workref = []
 print('='*50 + '\n')
-print("Starting Scanning: For {}/24\n".format(net1))
+print("Starting Scanning: For {}/16\n".format(net1))
 print('='*50 + '\n')
 for k in newip:
     workers = threading.Thread(target=pingit,args=(k,))
