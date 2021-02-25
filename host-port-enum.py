@@ -4,15 +4,6 @@ from datetime import datetime
 import socket
 import threading
 
-HEADER = '\033[95m'
-OKBLUE = '\033[94m'
-OKCYAN = '\033[96m'
-OKGREEN = '\033[92m'
-WARNING = '\033[93m'
-FAIL = '\033[91m'
-ENDC = '\033[0m'
-BOLD = '\033[1m'
-UNDERLINE = '\033[4m'
 protocolname = 'tcp' 
 def pingit(x):
     cmd= "ping -n 1 " + x
@@ -42,7 +33,7 @@ for ip in range(1,255):
 
 workref = []
 print('\n'+'='*50 + '\n')
-print("\033[93m\033[1m[!]\033[0m \033[91mStarting Scanning: For\033[0m\033[1m\033[94m {}/16\033[0m\n".format(net1))
+print("\033[93m\033[1m[!]\033[0m \033[91mStarting Host Discovery For: \033[0m\033[1m\033[94m {}/16\033[0m\n".format(net1))
 print('='*50 + '\n')
 for k in newip:
     workers = threading.Thread(target=pingit,args=(k,))
