@@ -9,6 +9,6 @@ python host-port-enum.py 192.168.29.1 [IP of current system]
 
 # Future Improvements
 
-[+] Gonna add dynamic range right now works with /24 subnet i.e Example [192.168.0.0/24]
+[+] Gonna add dynamic range, right now works with /24 subnet i.e Example [192.168.0.0/24]
 
-[+] Gonna scan for all ports right now does scan for top 30 port.
+[+] Gonna scan for all ports, right now does scan for top 30 port.
