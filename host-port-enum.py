@@ -10,7 +10,7 @@ def pingit(x):
     cmd= "ping -n 1 " + x
     result=os.popen(cmd)
     for line in result.readlines():
-        if(line.find("ttl") != -1):
+        if(line.count("TTL")):
             alive.append(x)
             print("[+] {} Host is alive on the network".format(x))
 
