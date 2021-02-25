@@ -4,8 +4,7 @@ from datetime import datetime
 import socket
 import threading
 
-ports = {20:"FTP",21:"FTP",22:"SSH",23:"Telnet",25:"SMTP",50:"IPSec",51:"IPSec",53:"DNS",67:"DHCP",68:"DHCP",69:"TFTP",80:"HTTP",110:"POP3",119:"NNTP",123:"NTP",135:"NetBIOS",136:"NetBIOS",137:"NetBIOS",138:"NetBIOS",139:"NetBIOS",143:"IMAP4",161:"SNMP",162:"SNMP",389:"LDAP",443:"HTTP-SSL",989:"SFTP",990:"SFTP",3389:"RDP",1433:"MSSQL",8080:"Jenkins",8081:"Jenkins"}
-
+protocolname = 'tcp' 
 def pingit(x):
     cmd= "ping -n 1 " + x
     result=os.popen(cmd)
@@ -14,11 +13,11 @@ def pingit(x):
             alive.append(x)
             print("[+] {} Host is alive on the network".format(x))
 
-def scan(host,ports, service):
+def scan(host,ports):
         socket.setdefaulttimeout(1)
         result=socket.socket(socket.AF_INET,socket.SOCK_STREAM).connect_ex((host,ports))
         if result == 0:
-            print("Discovered open port {} running {} on {} ".format(ports,service, host))
+            print("Discovered open port running {} on {} ".format(socket.getservbyport(ports, protocolname), host))
             socket.socket(socket.AF_INET,socket.SOCK_STREAM).close()
 
 t1 = datetime.now()
@@ -44,11 +43,11 @@ print('')
 print('='*50 + '\n')
 print('Port scanning in progress....\n')
 print('='*50 + '\n')
-getport=ports.keys()
+getport=sys.argv[2].split('-')
 threads=[]
 for o in alive:
-    for key in getport:
-        t1 = threading.Thread(target=scan,args=(o,key, ports[key]))
+    for prt in range(int(getport[0]),int(getport[1])):
+        t1 = threading.Thread(target=scan,args=(o,prt))
         threads.append(t1)
         t1.start()
 
