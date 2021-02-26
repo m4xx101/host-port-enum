@@ -1,6 +1,6 @@
 import os
 from os.path import split
-import sys
+import platform
 from datetime import datetime
 import socket
 import threading
@@ -24,10 +24,16 @@ def arguments():
 	return args
 
 args = arguments()
-
+oper = platform.system()
+if (oper == "Windows"):
+   ping1 = "ping -n 1 "
+elif (oper == "Linux"):
+   ping1 = "ping -c 1 "
+else :
+   ping1 = "ping -c 1 "
 def pingit(x):
     for k in x:
-        cmd= "ping -c 1 " + k
+        cmd= ping1 + k
         result=os.popen(cmd)
         for line in result.readlines():
             if(line.find("ttl") != -1):
