@@ -61,7 +61,7 @@ for ip in range(1,255):
 
 workref = []
 print('\n'+'='*50 + '\n')
-print("\033[93m\033[1m[!]\033[0m \033[91mStarting Host Discovery For: \033[0m\033[1m\033[94m {}/16\033[0m\n".format(net1))
+print("\033[93m\033[1m[!]\033[0m \033[91mStarting Host Discovery For: \033[0m\033[1m\033[94m{}/16\033[0m\n".format(net1))
 print('='*50 + '\n')
 split_ip=np.array_split(newip, int(args.thread))
 for k in split_ip:
@@ -73,7 +73,7 @@ for k in workref:
 
 print('')
 print('\n'+'='*52 + '\n')
-print('\033[93m\033[1m[!]\033[0m \033[91m Scanning Port for range {} on all live hosts\n\033[0m'.format(args.PORT))
+print('\033[93m\033[1m[!]\033[0m \033[91m Scanning Port for range \033[0m\033[1m\033[94m{}\033[0m \033[91mon all live hosts\n\033[0m'.format(args.PORT))
 print('='*52 + '\n')
 getport=args.PORT.split('-')
 allports=range(int(getport[0]),int(getport[1])+1)
