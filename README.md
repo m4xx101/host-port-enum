@@ -1,6 +1,6 @@
 # host-port-enum
 
-Simple yet fast host discovery tool plus port scanner, give inpute IP of current system, it discover all host for /16 subnet and launch port scan against it.
+Simple yet fast host discovery tool plus port scanner, give input IP of current system, it discover all host for /16 subnet and launch port scan against it and also enumrate service running on open ports.
 
 # Usage
 ```sh
