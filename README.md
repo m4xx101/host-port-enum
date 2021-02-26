@@ -4,23 +4,52 @@ Simple yet fast host discovery tool plus port scanner, give inpute IP of current
 
 # Usage
 ```sh
-python host-port-enum.py <Current-System-IP> <Port-Range-To-Scan>
-Example: python host-port-enum.py 192.168.29.1 1-65535
+PS M:\> python3 host-port-enum.py --help
+
+██╗  ██╗ ██████╗ ███████╗████████╗   ██████╗  ██████╗ ██████╗ ████████╗   ███████╗███╗   ██╗██╗   ██╗███╗   ███╗
+██║  ██║██╔═══██╗██╔════╝╚══██╔══╝   ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝   ██╔════╝████╗  ██║██║   ██║████╗ ████║
+███████║██║   ██║███████╗   ██║█████╗██████╔╝██║   ██║██████╔╝   ██║█████╗█████╗  ██╔██╗ ██║██║   ██║██╔████╔██║
+██╔══██║██║   ██║╚════██║   ██║╚════╝██╔═══╝ ██║   ██║██╔══██╗   ██║╚════╝██╔══╝  ██║╚██╗██║██║   ██║██║╚██╔╝██║
+██║  ██║╚██████╔╝███████║   ██║      ██║     ╚██████╔╝██║  ██║   ██║      ███████╗██║ ╚████║╚██████╔╝██║ ╚═╝ ██║
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝ By m4xx
+usage: host-port-enum.py [-h] [-ip IP] [-p PORT] [-t THREAD]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -ip IP, --ipAddress IP
+                        Current System IP Address
+  -p PORT, --port PORT  Port range
+  -t THREAD, --thread THREAD
+                        Threads Counts
 ```
 
 # Output
 ```sh
-PS M:\> python3 .\host-port-enum.py 192.168.29.1 1-65535
+PS M:\> python3 host-port-enum.py -ip 192.168.68.111 -p 1-65535 -t 200
+
+██╗  ██╗ ██████╗ ███████╗████████╗   ██████╗  ██████╗ ██████╗ ████████╗   ███████╗███╗   ██╗██╗   ██╗███╗   ███╗
+██║  ██║██╔═══██╗██╔════╝╚══██╔══╝   ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝   ██╔════╝████╗  ██║██║   ██║████╗ ████║
+███████║██║   ██║███████╗   ██║█████╗██████╔╝██║   ██║██████╔╝   ██║█████╗█████╗  ██╔██╗ ██║██║   ██║██╔████╔██║
+██╔══██║██║   ██║╚════██║   ██║╚════╝██╔═══╝ ██║   ██║██╔══██╗   ██║╚════╝██╔══╝  ██║╚██╗██║██║   ██║██║╚██╔╝██║
+██║  ██║╚██████╔╝███████║   ██║      ██║     ╚██████╔╝██║  ██║   ██║      ███████╗██║ ╚████║╚██████╔╝██║ ╚═╝ ██║
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝ By m4xx
 
 ==================================================
 
-[!] Starting Host Discovery For:  192.168.29.0/16
+[!] Starting Host Discovery For:  192.168.68.0/16
 
 ==================================================
 
-[+]  192.168.29.57  Host is alive on the network
-[+]  192.168.29.1  Host is alive on the network
-[+]  192.168.29.237  Host is alive on the network
+[+]  192.168.68.1  Host is alive on the network
+[+]  192.168.68.111  Host is alive on the network
+[+]  192.168.68.101  Host is alive on the network
+[+]  192.168.68.103  Host is alive on the network
+[+]  192.168.68.115  Host is alive on the network
+[+]  192.168.68.113  Host is alive on the network
+[+]  192.168.68.104  Host is alive on the network
+[+]  192.168.68.112  Host is alive on the network
+[+]  192.168.68.100  Host is alive on the network
+[+]  192.168.68.106  Host is alive on the network
 
 
 ====================================================
@@ -29,13 +58,9 @@ PS M:\> python3 .\host-port-enum.py 192.168.29.1 1-65535
 
 ====================================================
 
-Discovered port 1900 running ssdp on 192.168.29.1
-Discovered port 7 running echo on 192.168.29.237
-Discovered port 9 running discard on 192.168.29.237
-Discovered port 13 running daytime on 192.168.29.237
-Discovered port 17 running qotd on 192.168.29.237
-Discovered port 19 running chargen on 192.168.29.237
-Discovered port 135 running epmap on 192.168.29.237
-Discovered port 139 running netbios-ssn on 192.168.29.237
-Discovered port 445 running microsoft-ds on 192.168.29.237
+Discovered port 7000 running bbs on 192.168.68.101 
+Discovered port 53 running domain on 192.168.68.1 
+Discovered port 7100 running font-service on 192.168.68.101 
+Discovered port 6379 running redis on 192.168.68.106 
+Discovered port 5432 running postgresql on 192.168.68.106 
 ```
