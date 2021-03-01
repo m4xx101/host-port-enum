@@ -4,7 +4,8 @@ Simple yet fast host discovery tool plus port scanner, give input IP of current 
 
 # Usage
 ```sh
-PS M:\> python3 host-port-enum.py --help
+┌──(m4xx㉿m4xx)-[~/]
+└─$ python3 host-port-enum.py -h
 
 ██╗  ██╗ ██████╗ ███████╗████████╗   ██████╗  ██████╗ ██████╗ ████████╗   ███████╗███╗   ██╗██╗   ██╗███╗   ███╗
 ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝   ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝   ██╔════╝████╗  ██║██║   ██║████╗ ████║
@@ -12,20 +13,23 @@ PS M:\> python3 host-port-enum.py --help
 ██╔══██║██║   ██║╚════██║   ██║╚════╝██╔═══╝ ██║   ██║██╔══██╗   ██║╚════╝██╔══╝  ██║╚██╗██║██║   ██║██║╚██╔╝██║
 ██║  ██║╚██████╔╝███████║   ██║      ██║     ╚██████╔╝██║  ██║   ██║      ███████╗██║ ╚████║╚██████╔╝██║ ╚═╝ ██║
 ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝ By m4xx
-usage: host-port-enum.py [-h] [-ip IP] [-p PORT] [-t THREAD]
+usage: host-port-enum.py [-h] [-ip IP] [-p PORT] [-r RANGE] [-t THREAD]
 
 optional arguments:
   -h, --help            show this help message and exit
   -ip IP, --ipAddress IP
                         Current System IP Address
   -p PORT, --port PORT  Port range
+  -r RANGE, --range RANGE
+                        Scanning range Example: /16,/24
   -t THREAD, --thread THREAD
                         Threads Counts
 ```
 
 # Output
 ```sh
-PS M:\> python3 host-port-enum.py -ip 192.168.68.111 -p 1-65535 -t 200
+┌──(m4xx㉿m4xx)-[~/]
+└─$ python3 host-port-enum.py -ip 192.168.68.106 -p 1-65535 -r /16 -t 200
 
 ██╗  ██╗ ██████╗ ███████╗████████╗   ██████╗  ██████╗ ██████╗ ████████╗   ███████╗███╗   ██╗██╗   ██╗███╗   ███╗
 ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝   ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝   ██╔════╝████╗  ██║██║   ██║████╗ ████║
@@ -36,20 +40,19 @@ PS M:\> python3 host-port-enum.py -ip 192.168.68.111 -p 1-65535 -t 200
 
 ==================================================
 
-[!] Starting Host Discovery For:  192.168.68.0/16
+[!] Starting Host Discovery For: 192.168.0.0/16
 
 ==================================================
 
-[+]  192.168.68.1  Host is alive on the network
-[+]  192.168.68.111  Host is alive on the network
-[+]  192.168.68.101  Host is alive on the network
+[+]  192.168.68.102  Host is alive on the network
 [+]  192.168.68.103  Host is alive on the network
-[+]  192.168.68.115  Host is alive on the network
-[+]  192.168.68.113  Host is alive on the network
 [+]  192.168.68.104  Host is alive on the network
-[+]  192.168.68.112  Host is alive on the network
-[+]  192.168.68.100  Host is alive on the network
 [+]  192.168.68.106  Host is alive on the network
+[+]  192.168.68.107  Host is alive on the network
+[+]  192.168.68.108  Host is alive on the network
+[+]  192.168.68.109  Host is alive on the network
+[+]  192.168.68.111  Host is alive on the network
+[+]  192.168.1.5  Host is alive on the network
 
 
 ====================================================
