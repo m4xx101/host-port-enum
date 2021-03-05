@@ -15,7 +15,6 @@ def get_ip_address():
 hostip=get_ip_address()
 protocolname = 'tcp'
 newip=[]
-tmp=hostip.split('.')
 print('''
 ██╗  ██╗ ██████╗ ███████╗████████╗   ██████╗  ██████╗ ██████╗ ████████╗   ███████╗███╗   ██╗██╗   ██╗███╗   ███╗
 ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝   ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝   ██╔════╝████╗  ██║██║   ██║████╗ ████║
@@ -26,14 +25,15 @@ print('''
 
 def arguments():
         parser = argparse.ArgumentParser()
-        parser.add_argument('-ip','--ipAddress', dest = "IP", help='Current System IP Address',default=hostip)
-        parser.add_argument('-p','--port',dest = "PORT", help='Port range', default="1-65535")
+        parser.add_argument('-ip','--ipAddress', dest = "IP", help='Current System IP Address')
+        parser.add_argument('-p','--port',dest = "PORT", help='Port range', default="1-2000")
         parser.add_argument('-r','--range',dest = "range", help="Scanning range Example: /16,/24 ", default="/24")
         parser.add_argument('-t','--thread',dest = "thread", help='Threads Counts', default=57)
         args = parser.parse_args()
         return args
 
 args = arguments()
+tmp=args.IP.split('.')
 oper = platform.system()
 if (oper == "Windows"):
    ping1 = "ping -n 1 "
@@ -65,7 +65,6 @@ def pingit(x):
 
 def scan(host,ports):
     for k in ports:
-        socket.setdefaulttimeout(1)
         result=socket.socket(socket.AF_INET,socket.SOCK_STREAM).connect_ex((host,k))
         try:
             if result == 0:
